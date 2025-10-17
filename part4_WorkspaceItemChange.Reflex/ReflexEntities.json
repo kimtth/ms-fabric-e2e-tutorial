@@ -1,0 +1,82 @@
+[
+  {
+    "uniqueIdentifier": "a920e37e-fa80-46ee-bce5-db86f83d66c6",
+    "payload": {
+      "name": "fabric-hands-on",
+      "description": "Container Description",
+      "type": "rthSubscriptions"
+    },
+    "type": "container-v1"
+  },
+  {
+    "uniqueIdentifier": "910c2352-f9e5-4419-9fbf-7835774ad2a8",
+    "payload": {
+      "name": "fabric-hands-on event",
+      "connection": {
+        "scope": "Workspace",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "workspaceId": "b93996d5-c37f-44ef-bdf6-3cb0e5794a19",
+        "eventGroupType": "Microsoft.Fabric.WorkspaceEvents"
+      },
+      "filterSettings": {
+        "eventTypes": [
+          {
+            "name": "Microsoft.Fabric.ItemCreateSucceeded"
+          },
+          {
+            "name": "Microsoft.Fabric.ItemCreateFailed"
+          },
+          {
+            "name": "Microsoft.Fabric.ItemUpdateSucceeded"
+          },
+          {
+            "name": "Microsoft.Fabric.ItemUpdateFailed"
+          },
+          {
+            "name": "Microsoft.Fabric.ItemDeleteSucceeded"
+          },
+          {
+            "name": "Microsoft.Fabric.ItemDeleteFailed"
+          }
+        ],
+        "filters": []
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "a920e37e-fa80-46ee-bce5-db86f83d66c6"
+      }
+    },
+    "type": "realTimeHubSource-v1"
+  },
+  {
+    "uniqueIdentifier": "ca0f5ee3-7c5a-4960-9762-5fc287d0d0b4",
+    "payload": {
+      "name": "fabric-hands-on event",
+      "parentContainer": {
+        "targetUniqueIdentifier": "a920e37e-fa80-46ee-bce5-db86f83d66c6"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"steps\":[{\"id\":\"c7412499-ac64-4f12-8b57-3f1461758ccf\",\"name\":\"SourceEventStep\",\"rows\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"910c2352-f9e5-4419-9fbf-7835774ad2a8\"}],\"kind\":\"SourceReference\",\"name\":\"SourceSelector\"}]}],\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.2.3\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "4f73eec5-d06e-4e38-8293-1c65242100a3",
+    "payload": {
+      "name": "Fabric Event Alert Tutorial",
+      "parentContainer": {
+        "targetUniqueIdentifier": "a920e37e-fa80-46ee-bce5-db86f83d66c6"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"steps\":[{\"id\":\"4f6261ff-f5cd-4250-9c70-a77fc55c695f\",\"name\":\"FieldsDefaultsStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"ca0f5ee3-7c5a-4960-9762-5fc287d0d0b4\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"}]},{\"id\":\"45b433e5-8326-4e96-a31b-7f8c793e503c\",\"name\":\"EventDetectStep\",\"rows\":[{\"arguments\":[],\"kind\":\"OnEveryValue\",\"name\":\"OnEveryValue\"}]},{\"id\":\"39e8164f-9709-4c57-9cb2-cd6070b7bbe2\",\"name\":\"ActStep\",\"rows\":[{\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"test@email.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"Activator alert Fabric Event Alert Tutorial\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"The condition for 'Fabric Event Alert Tutorial' has been met\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[]}],\"kind\":\"TeamsMessage\",\"name\":\"TeamsBinding\"}]}],\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.2.3\"}",
+        "settings": {
+          "shouldRun": false,
+          "shouldApplyRuleOnUpdate": true
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]

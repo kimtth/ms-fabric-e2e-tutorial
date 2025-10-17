@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLQueryset",
+    "displayName": "part4_power_bi_report",
+    "description": "part4_power_bi_report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "406db3f2-45d4-a767-46cc-604a40042ddd"
+  }
+}

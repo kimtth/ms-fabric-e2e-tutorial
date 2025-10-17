@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "b1513b26-ad97-46c6-b67a-34e3c9d4e1a9",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "558127f5-0c72-98c6-47bb-8bdc543d1b99",
+        "databaseItemName": "part4_eventhouse_tutorial"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "fa8226a6-6598-4ba7-8bf8-b49689ebb6cb",
+        "content": "// Not able to create Power BI Report in my env\nRawData\n| summarize arg_max(Timestamp, No_Bikes,  No_Empty_Docks, Neighbourhood, Lat=todouble(Latitude), Lon=todouble(Longitude)) by BikepointID",
+        "title": "powerbi",
+        "dataSourceId": "b1513b26-ad97-46c6-b67a-34e3c9d4e1a9"
+      }
+    ]
+  }
+}

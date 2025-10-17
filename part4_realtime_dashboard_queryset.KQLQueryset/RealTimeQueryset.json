@@ -1,0 +1,22 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "c5bc83ab-40de-443a-8b2f-076aa1f0f050",
+        "clusterUri": "",
+        "type": "Fabric",
+        "databaseItemId": "558127f5-0c72-98c6-47bb-8bdc543d1b99",
+        "databaseItemName": "part4_eventhouse_tutorial"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "4cb8cc45-4e00-4dd2-b924-8a608ff48d3b",
+        "content": "AggregatedData\n| sort by BikepointID\n| render columnchart with (ycolumns=No_Bikes,xcolumn=BikepointID)",
+        "title": "realtime_queryset",
+        "dataSourceId": "c5bc83ab-40de-443a-8b2f-076aa1f0f050"
+      }
+    ]
+  }
+}

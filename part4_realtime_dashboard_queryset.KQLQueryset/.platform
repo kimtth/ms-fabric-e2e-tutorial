@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLQueryset",
+    "displayName": "part4_realtime_dashboard_queryset",
+    "description": "realtim_dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8b5653d4-12b4-8d35-43cd-482cf05c18dc"
+  }
+}

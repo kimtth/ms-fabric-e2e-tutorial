@@ -1,0 +1,58 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e",
+        "clusterUri": "https://trd-ma4rpehwqsvgzwjxy0.z6.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "543d1b99-8bdc-47bb-98c6-0c72558127f5",
+        "databaseItemName": "part4_eventhouse_tutorial"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "4a21459b-b105-43dc-b161-b5f70b7ac20c",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n.alter table RawData (BikepointID:string,Street:string,Neighbourhood:string,Latitude:real,Longitude:real,No_Bikes:long,No_Empty_Docks:long,Timestamp:datetime) with (folder=\"Bronze\")\n\n.create table TransformedData (BikepointID: int, Street: string, Neighbourhood: string, Latitude: real, Longitude: real, No_Bikes: long, No_Empty_Docks: long, Timestamp: datetime, BikesToBeFilled: long, Action: string) with (folder=\"Silver\")\n\n.create-or-alter function TransformRawData() {\nRawData\n| parse BikepointID with * \"BikePoints_\" BikepointID:int\n| extend BikesToBeFilled = No_Empty_Docks - No_Bikes\n| extend Action = iff(BikesToBeFilled > 0, tostring(BikesToBeFilled), \"NA\")\n }\n\n ",
+        "title": "alter_create",
+        "dataSourceId": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e"
+      },
+      {
+        "id": "9cbcbc98-15a0-4a7a-89fc-b711733cc4b6",
+        "content": ".alter table TransformedData policy update\n```[{\n    \"IsEnabled\": true,\n    \"Source\": \"RawData\",\n    \"Query\": \"TransformRawData()\",\n    \"IsTransactional\": false,\n    \"PropagateIngestionProperties\": false\n}]```",
+        "title": "update_policy",
+        "dataSourceId": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e"
+      },
+      {
+        "id": "c35ee6c4-66f7-480b-bf1a-33829e7f2a65",
+        "content": "// Verify data\n\nRawData\n| take 10\n\nTransformedData\n| take 10",
+        "title": "",
+        "dataSourceId": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e"
+      },
+      {
+        "id": "06399054-9d01-45e8-908f-c3ddacd6988a",
+        "content": "TransformedData\n| where BikepointID > 100 and Neighbourhood == \"Chelsea\"\n| project Timestamp, No_Bikes\n| render timechart",
+        "title": "time_chart",
+        "dataSourceId": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e"
+      },
+      {
+        "id": "774cd222-13a4-408b-b330-e55847139632",
+        "content": ".create-or-alter materialized-view with (folder=\"Gold\") AggregatedData on table TransformedData\n{\n   TransformedData\n   | summarize arg_max(Timestamp,No_Bikes) by BikepointID\n}\n\n\nAggregatedData\n| sort by BikepointID\n| render columnchart with (ycolumns=No_Bikes,xcolumn=BikepointID)",
+        "title": "create_agg_materialized_view",
+        "dataSourceId": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e"
+      },
+      {
+        "id": "619690ad-9e28-4526-88d5-6f0fd251a654",
+        "content": "\n// KQL\nexplain\nSELECT top(10) *\nFROM AggregatedData\nORDER BY No_Bikes DESC",
+        "title": "t-sql",
+        "dataSourceId": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e"
+      },
+      {
+        "id": "e5b1b109-1a29-4b77-ba75-3337553a4293",
+        "content": "explain\nSELECT top(10) *\nFROM AggregatedData\nORDER BY No_Bikes DESC",
+        "title": "t-sql-to-kql",
+        "dataSourceId": "d20eed15-50e0-42c4-a9bb-4a4c4a8ef52e"
+      }
+    ]
+  }
+}

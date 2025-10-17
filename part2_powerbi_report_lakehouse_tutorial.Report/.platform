@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "part2_powerbi_report_lakehouse_tutorial"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6567bbf6-716e-8567-4d8d-ba5461634a20"
+  }
+}
