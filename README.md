@@ -6,6 +6,7 @@
 - [Documentation](https://learn.microsoft.com/en-us/fabric/)
 - [End to end tutorials](https://learn.microsoft.com/en-us/fabric/fundamentals/end-to-end-tutorials) > [Docs](https://github.com/MicrosoftDocs/fabric-docs/blob/main/docs/fundamentals/end-to-end-tutorials.md)  
 - [Fabric samples](https://github.com/microsoft/fabric-samples): GitHub repository for Fabric samples
+- [Microsoft Fabric Git integration?](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/intro-to-git-integration)
 
 ## 📋 Resource Description
 
