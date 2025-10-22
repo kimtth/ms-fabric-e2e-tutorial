@@ -1,5 +1,10 @@
 # 🚀 Microsoft Fabric
 
+This repository demonstrates how resources are created in a Git repository when Git integration is activated with a Fabric workspace created by following the E2E tutorials.
+
+> [!TIP]
+> A workspace admin can connect a workspace to a Git repository. Using these resources can simplify resource creation in the end-to-end tutorial by minimizing manual steps.
+
 ## 📚 Documentation and Tutorial
 
 - [Microsoft Fabric portal](https://app.fabric.microsoft.com/)
