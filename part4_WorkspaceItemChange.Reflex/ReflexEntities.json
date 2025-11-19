@@ -14,8 +14,8 @@
       "name": "fabric-hands-on event",
       "connection": {
         "scope": "Workspace",
-        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-        "workspaceId": "b93996d5-c37f-44ef-bdf6-3cb0e5794a19",
+        "tenantId": "",
+        "workspaceId": "",
         "eventGroupType": "Microsoft.Fabric.WorkspaceEvents"
       },
       "filterSettings": {

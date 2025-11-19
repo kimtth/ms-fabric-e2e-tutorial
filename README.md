@@ -48,6 +48,45 @@ This repository demonstrates how resources are created in a Git repository when 
 ### 3. ⚙️ Environment setup
 
 - Fabric stores metadata only. Actual data (OneLake files, table contents) and connection secrets/credentials are not stored in Git. After a fresh sync/clone into another workspace, you'll typically need to recreate or rebind connections and re-enter credentials.
-- ⚠️ The email address in the `Fabric Event Alert Tutorial` should be replaced with your own email address. The placeholder is set to `test@email.com`.
-- Resource list
-    ![image](./dataset/static/resource_list.png)
+- [Manually fix a failed update](https://learn.microsoft.com/en-us/fabric/cicd/git-integration/partial-update)
+
+#### Trouble shooting
+
+Troubleshooting GitHub sync issues, especially when syncing data to another tenant.
+
+1. Set the value to null to resolve the “connection not found” issue during synchronization with the GitHub repository.
+
+    - part2_IngestDataFromSourceToLakehouse.DataPipeline/pipeline-content.json
+    - part5_Load Customer Data.DataPipeline/pipeline-content.json
+
+    ```json
+    "externalReferences": {
+        "connection": ""
+    },
+    ```
+
+2.  The email address in the Fabric Event Alert Tutorial should be replaced with your own email address. The placeholder is set to `test@email.com`.
+
+    - part4_WorkspaceItemChange.Reflex/ReflexEntities.json
+
+    ```json
+    "definition": {
+    "type": "Rule",
+    "instance": "..test@email.com.."
+    ```
+
+    Set your tenant id and workspace id in the json.
+
+    ```json
+    "tenantId": "...", // Get this from Azure Portal
+    "workspaceId": "..." // Get from your Microsoft Fabric URL. https://app.fabric.microsoft.com/groups/YOUR_WORKSPACE_ID
+    ```
+
+3. Recreate connection for DataPipeline
+
+   - part2_IngestDataFromSourceToLakehouse.DataPipeline: see this [tutorial](https://learn.microsoft.com/en-us/fabric/data-engineering/tutorial-lakehouse-data-ingestion)
+   - part5_Load Customer Data.DataPipeline: see this [tutorial](https://learn.microsoft.com/en-us/fabric/data-warehouse/tutorial-ingest-data)
+
+#### Resource list
+
+![image](./dataset/static/resource_list.png)

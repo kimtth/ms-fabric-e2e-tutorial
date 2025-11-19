@@ -37,7 +37,7 @@
               },
               "schema": [],
               "externalReferences": {
-                "connection": "31f803e9-2c1f-4bfd-aec6-5f12a33b6d62"
+                "connection": ""
               }
             }
           },
@@ -59,7 +59,7 @@
                     "workspaceId": "b93996d5-c37f-44ef-bdf6-3cb0e5794a19"
                   },
                   "externalReferences": {
-                    "connection": "18e971e5-7279-4109-a023-96736fd1d1ae"
+                    "connection": ""
                   }
                 }
               },

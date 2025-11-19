@@ -23,7 +23,7 @@
                 }
               },
               "externalReferences": {
-                "connection": "31f803e9-2c1f-4bfd-aec6-5f12a33b6d62"
+                "connection": ""
               },
               "annotations": []
             }
@@ -51,7 +51,7 @@
                     "rootFolder": "Files"
                   },
                   "externalReferences": {
-                    "connection": "cace914f-4f2b-4acd-8c10-0211798dc29e"
+                    "connection": ""
                   },
                   "annotations": []
                 }
