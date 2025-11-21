@@ -18,19 +18,21 @@ This repository demonstrates how resources are created in a Git repository when 
 ### 1. 🎯 Hands-on by end to end tutorials 
 
 - **Part 1: Lakehouse** 🌊
-    - part 1 prefixed assets: Dataflow -> Semantic model -> Power BI
+    - [part 1 prefixed assets](https://learn.microsoft.com/en-us/fabric/data-engineering/tutorial-build-lakehouse): Dataflow -> Semantic model -> Power BI
 - **Part 2: Lakehouse** 🌊
-    - part 2 prefixed assets: Data Pipeline -> Notebook -> Semantic model -> Power BI
+    - [part 2 prefixed assets](https://learn.microsoft.com/en-us/fabric/data-engineering/tutorial-lakehouse-data-ingestion): Data Pipeline -> Notebook -> Semantic model -> Power BI
+    - tutorial_lakehouse
 - **Part 3: Data science** 💙
+    - [part 3 prefixed assets](https://learn.microsoft.com/en-us/fabric/data-science/tutorial-data-science-introduction)
     - Random Forest (Bagging (parallel ensemble)), LightGBM (Gradient Boosting (sequential ensemble))
     - bank-churn-experiment
     - lgbm_sm
     - rfc1_sm
     - rfc2_sm
 - **Part 4: Real-Time Intelligence** ⚡
-    - part 4 prefixed assets: Eventhouse -> Eventstream -> KQL -> Realtime Dashboard
+    - [part 4 prefixed assets](https://learn.microsoft.com/en-us/fabric/real-time-intelligence/tutorial-introduction): Eventhouse -> Eventstream -> KQL -> Realtime Dashboard
 - **Part 5: Data warehouse** 🪣
-    - part 5 prefixed assets: Data warehouse -> Data Pipeline -> SQL (Incl. Visual Query) & Notebook -> Semantic model -> Power BI Report
+    - [part 5 prefixed assets](https://learn.microsoft.com/en-us/fabric/data-warehouse/tutorial-introduction): Data warehouse -> Data Pipeline -> SQL (Incl. Visual Query) & Notebook -> Semantic model -> Power BI Report
 - **Dataset** 🗂️
     - part 1: dimension_customer.csv: `Copy permalink` from [the official sample repository](https://github.com/microsoft/fabric-samples/blob/main/docs-samples/data-engineering/dimension_customer.csv) or see the `dataset` directory. 
     - part 2: Import parquet files from https://fabrictutorialdata.blob.core.windows.net/sampledata/ using Data Pipeline. `Check the details in the tutorial`.
