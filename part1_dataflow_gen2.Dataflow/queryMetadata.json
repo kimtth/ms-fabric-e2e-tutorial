@@ -1,0 +1,40 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "tth_dataflow_gen2",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "e09f5325-7c0e-4b25-8c96-1efd4a6553ae",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "dimension_customer": {
+      "queryId": "227b2633-4e7b-4c39-89dc-d56e9acfb365",
+      "queryName": "dimension_customer",
+      "loadEnabled": false
+    },
+    "dimension_customer_DataDestination": {
+      "queryId": "0f35b379-842d-4633-b952-5b10ac5faefa",
+      "queryName": "dimension_customer_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"f92b0d60-6145-4224-8ca1-45c117a6d302\",\"DatasourceId\":\"cace914f-4f2b-4acd-8c10-0211798dc29e\"}"
+    },
+    {
+      "path": "https://raw.githubusercontent.com/microsoft/fabric-samples/35fd4439f02a045050fe6e951db259fc6c9392ba/docs-samples/data-engineering/dimension_customer.csv",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"f92b0d60-6145-4224-8ca1-45c117a6d302\",\"DatasourceId\":\"52e13a7f-5065-49f6-9a13-cc105e086b2f\"}"
+    }
+  ]
+}

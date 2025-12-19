@@ -1,0 +1,9 @@
+expression DatabaseQuery =
+		let
+		    database = Sql.Database("replace with connection SQL string of lakehouse analytics endpoint", "lakehouse analytics GUID")
+		in
+		    database
+	lineageTag: 6a956241-c831-433a-8a01-f4e81b3e0a7f
+
+	annotation PBI_IncludeFutureArtifacts = False
+

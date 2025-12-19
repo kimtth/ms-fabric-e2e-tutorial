@@ -1,0 +1,143 @@
+table aggregate_sale_by_date_city
+	lineageTag: eab301c0-d7b0-4f78-bbab-2271918bbde7
+	sourceLineageTag: [dbo].[aggregate_sale_by_date_city]
+
+	column StateProvince
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c793b245-5b18-4c89-934f-380ed11f96e1
+		sourceLineageTag: StateProvince
+		summarizeBy: none
+		sourceColumn: StateProvince
+
+		annotation SummarizationSetBy = Automatic
+
+	column SalesTerritory
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: ba8d64ed-a992-46bf-ad7e-c2abba361949
+		sourceLineageTag: SalesTerritory
+		summarizeBy: none
+		sourceColumn: SalesTerritory
+
+		annotation SummarizationSetBy = Automatic
+
+	column SumOfTotalExcludingTax
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: 919a99d4-5651-499d-88ca-c57dca3c781a
+		sourceLineageTag: SumOfTotalExcludingTax
+		summarizeBy: sum
+		sourceColumn: SumOfTotalExcludingTax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SumOfTaxAmount
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: d2557bab-e38b-40d7-af64-457da27cdc9d
+		sourceLineageTag: SumOfTaxAmount
+		summarizeBy: sum
+		sourceColumn: SumOfTaxAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SumOfTotalIncludingTax
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: b18c3a9c-0669-4655-b4d1-c3d931968b7b
+		sourceLineageTag: SumOfTotalIncludingTax
+		summarizeBy: sum
+		sourceColumn: SumOfTotalIncludingTax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SumOfProfit
+		dataType: double
+		sourceProviderType: decimal(28, 2)
+		lineageTag: ccc6f0bf-4338-45f8-beb2-4f210f05a04e
+		sourceLineageTag: SumOfProfit
+		summarizeBy: sum
+		sourceColumn: SumOfProfit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 39276f30-c4f7-4787-9fac-01cfe2b1e6ae
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarMonthLabel
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0cec8178-145a-4ebe-9791-2631408b1aff
+		sourceLineageTag: CalendarMonthLabel
+		summarizeBy: none
+		sourceColumn: CalendarMonthLabel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 089395fc-5be6-4174-a822-2f96869a8d91
+		sourceLineageTag: Day
+		summarizeBy: none
+		sourceColumn: Day
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShortMonth
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d06179c5-4229-4664-b6df-3a7535f31365
+		sourceLineageTag: ShortMonth
+		summarizeBy: none
+		sourceColumn: ShortMonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalendarYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b2377ea7-3f54-4c2a-a44f-369001ad42d6
+		sourceLineageTag: CalendarYear
+		summarizeBy: sum
+		sourceColumn: CalendarYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e10587bc-b240-4ad0-9d57-3d43f1d3ec42
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	partition aggregate_sale_by_date_city = entity
+		mode: directLake
+		source
+			entityName: aggregate_sale_by_date_city
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
